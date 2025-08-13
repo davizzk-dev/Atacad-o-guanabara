@@ -60,14 +60,11 @@
     "@radix-ui/react-toggle-group": "1.1.1",
     "@radix-ui/react-tooltip": "1.1.6",
     "autoprefixer": "^10.4.20",
-    "axios": "^1.11.0",
-<<<<<<< HEAD
-    "browserslist": "^4.25.2",
-    "caniuse-lite": "^1.0.30001733",
-=======
-    "chart.js": "^4.5.0",
-    "cheerio": "^1.1.2",
->>>>>>> 51c583dc6aed85819b3d4fc1c5ef7f1a58749f03
+  "axios": "^1.11.0",
+  "browserslist": "^4.25.2",
+  "caniuse-lite": "^1.0.30001733",
+  "chart.js": "^4.5.0",
+  "cheerio": "^1.1.2",
     "class-variance-authority": "^0.7.1",
     "client-only": "^0.0.1",
     "clsx": "^2.1.1",
@@ -106,7 +103,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "postcss": "^8.5",
-    "tailwind-scrollbar": "^4.0.2",
+  "tailwind-scrollbar": "^3.0.0",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
   }
