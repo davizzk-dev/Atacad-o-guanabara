@@ -1,6 +1,6 @@
 "use client"
 
-<<<<<<< HEAD
+
 import { useEffect, useState } from "react"
 import { useParams } from "next/navigation"
 import Header from "@/components/header"
@@ -15,7 +15,7 @@ import { useCartStore, useFavoritesStore } from "@/lib/store"
 import { Heart, Share2, ShoppingCart, Truck, Shield, RotateCcw, Check, ArrowLeft } from "lucide-react"
 // Note: using native <img> and <a> to avoid type issues across workspaces
  
-=======
+
 import { useState, useEffect, useRef } from "react"
 import { useParams } from "next/navigation"
 import { ArrowLeft, Heart, ShoppingCart, Minus, Plus, Share2, Star, Package, Barcode, Hash, Eye, TrendingDown, Calculator } from "lucide-react"
@@ -40,7 +40,6 @@ interface PriceData {
   descontoMaximo: number
   permiteDesconto: boolean
 }
->>>>>>> 51c583dc6aed85819b3d4fc1c5ef7f1a58749f03
 
 export default function ProductPage() {
   const params = useParams()
@@ -50,21 +49,20 @@ export default function ProductPage() {
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
   const [quantity, setQuantity] = useState(1)
-<<<<<<< HEAD
+
   const [showAddAnimation, setShowAddAnimation] = useState(false)
   const [showNotification, setShowNotification] = useState(false)
   const [whatsNumber, setWhatsNumber] = useState<string | null>(null)
-=======
+
   const [isAdding, setIsAdding] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
   const [currentPrice, setCurrentPrice] = useState(0)
   const confettiRef = useRef<HTMLCanvasElement | null>(null)
->>>>>>> 51c583dc6aed85819b3d4fc1c5ef7f1a58749f03
+
 
   const { addItem, items } = useCartStore()
   const { addFavorite, removeFavorite, isFavorite } = useFavoritesStore()
 
-<<<<<<< HEAD
   // Carrega número do WhatsApp de settings via API
   useEffect(() => {
     let mounted = true
@@ -80,7 +78,7 @@ export default function ProductPage() {
   }, [whatsNumber])
 
   if (!product) {
-=======
+
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -361,7 +359,7 @@ export default function ProductPage() {
   const cartQuantity = cartItem?.quantity || 0
 
   if (loading) {
->>>>>>> 51c583dc6aed85819b3d4fc1c5ef7f1a58749f03
+
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="flex flex-col items-center gap-4 p-8 rounded-2xl bg-white/80 backdrop-blur shadow-lg border border-gray-100">
@@ -378,7 +376,7 @@ export default function ProductPage() {
     )
   }
 
-<<<<<<< HEAD
+
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) {
       addItem(product)

@@ -13,7 +13,8 @@ const nextConfig = {
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
   experimental: {
-    esmExternals: true,
+    // Evita problemas com pacotes ESM em build server
+    esmExternals: false,
   },
   env: {
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
@@ -34,48 +35,23 @@ const nextConfig = {
       },
     ]
   },
-   // Configurações experimentais
-  experimental: {
-    esmExternals: false, // Mudou de 'loose' para false para evitar erros
-  },
   webpack: (config, { isServer }) => {
-<<<<<<< HEAD
-    // Resolver problemas com módulos que não funcionam no servidor
+    // Evita tentar empacotar jspdf no lado do servidor
     if (isServer) {
       config.externals = config.externals || []
-      config.externals.push({
-        'jspdf': 'commonjs jspdf',
-      })
+      config.externals.push({ jspdf: 'commonjs jspdf' })
     }
-    
-    // Resolver problemas com módulos que causam erro de length
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      fs: false,
-      net: false,
-      tls: false,
-      'jspdf': 'commonjs jspdf',
-    }
-    
-    // Resolver problemas com módulos que causam erro de length
+
+    // Fallbacks para módulos Node no client (e manter seguro no server)
+    config.resolve = config.resolve || {}
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false,
       net: false,
       tls: false,
       crypto: false,
-=======
-    if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-        net: false,
-        tls: false,
-        crypto: false,
-      }
->>>>>>> 51c583dc6aed85819b3d4fc1c5ef7f1a58749f03
     }
-    
+
     return config
   },
 }
